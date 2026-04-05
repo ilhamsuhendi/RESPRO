@@ -73,7 +73,7 @@ st.markdown("""
 
 # ── Hero Section ─────────────────────────────────────────────
 st.markdown('<div class="hero-title">🛢️ RESPRO</div>', unsafe_allow_html=True)
-st.markdown('<div class="hero-subtitle">Reservoir Profile — Production Intelligence Suite</div>', unsafe_allow_html=True)
+st.markdown('<div class="hero-subtitle">Reservoir Production Profile Suite</div>', unsafe_allow_html=True)
 st.markdown('<div class="hero-divider"></div>', unsafe_allow_html=True)
 
 # ── Navigation Cards ─────────────────────────────────────────
@@ -126,4 +126,4 @@ with col3:
 
 # ── Footer ───────────────────────────────────────────────────
 st.markdown("---")
-st.caption("RESPRO v1.0 — Reservoir Profile Intelligence Suite")
+st.caption("RESPRO v1.0 — Reservoir Production Profile Suite")
