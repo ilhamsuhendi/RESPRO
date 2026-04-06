@@ -140,7 +140,7 @@ def build_final_summary_table(calc_df, assumption_df):
         calc_df,
         assumption_df[[
             'Field', 'Case', 'Model Basis & Assumption',
-            'Submit Date', 'SU Date', 'GIIP, Tcf'
+            'Submit Date', 'SU Date', 'Facility', 'No. of Wells', 'GIIP, Tcf'
         ]],
         on=['Field', 'Case'],
         how='left'
@@ -154,7 +154,7 @@ def build_final_summary_table(calc_df, assumption_df):
 
     final_table = merged_summary[[
         'Field', 'Case', 'Model Basis & Assumption', 'Submit Date',
-        'SU Date', 'GIIP, Tcf', 'Gas EUR, Bcf',
+        'SU Date', 'Facility', 'No. of Wells', 'GIIP, Tcf', 'Gas EUR, Bcf',
         'Condensate EUR, MMbbl', 'Gas RF'
     ]]
     return final_table
@@ -198,10 +198,11 @@ def render_summary_table(final_table):
         'Gas EUR, Bcf': "{:,.2f}",
         'Condensate EUR, MMbbl': "{:,.2f}",
         'Gas RF': "{:,.2f}%",
+        'No. of Wells': "{:,.0f}",
         'Submit Date': lambda t: t.strftime('%d-%b-%Y') if pd.notnull(t) and type(t) != str else t,
         'SU Date': lambda t: t.strftime('%d-%b-%Y') if pd.notnull(t) and type(t) != str else t
     }).set_properties(
-        subset=['GIIP, Tcf', 'Gas EUR, Bcf', 'Condensate EUR, MMbbl', 'Gas RF'],
+        subset=['No. of Wells', 'GIIP, Tcf', 'Gas EUR, Bcf', 'Condensate EUR, MMbbl', 'Gas RF'],
         **{'text-align': 'center'}
     ).set_table_styles([
         {'selector': 'th', 'props': [('text-align', 'center'), ('font-size', '1.1rem')]},
